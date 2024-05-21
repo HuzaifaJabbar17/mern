@@ -1,0 +1,21 @@
+1.creating a express server
+2.using express router and creating route file in a routes folder
+3.creating controller file means logic on the route in a controllers folder
+4.using postman to test our api
+5.connecting with database i.e mongodb atlas
+6.using .env package to hide info
+7.creatng schema and model
+8.storing data in database
+9.hashing the password using bcryptjs package
+10.using JSON web token for authentication
+11.using ZOD validation
+12.using middleware (error)
+
+
+create a model means create schema and connect it with model
+create a route
+create a controller
+then the data gets saved in our database
+
+define the path in our server file
+
