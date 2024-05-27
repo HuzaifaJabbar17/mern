@@ -16,7 +16,7 @@ const Navbar = () => {
               <li><NavLink to="/service">Service</NavLink></li>
               <li><NavLink to="/register">Sign In</NavLink></li>
               <li><NavLink to="/login">Log In</NavLink></li>
-              <li><NavLink to="/Logout">Log out</NavLink></li>
+              <li><NavLink to="/logout">Log out</NavLink></li>
             </ul>
           </nav>
         </div>
