@@ -3,7 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <p>@HuzaifaJabbar 2024</p>
+      <p>@HJ Tech Solutions 2024</p>
     </footer>
   );
 };

@@ -6,7 +6,7 @@ const Navbar = () => {
       <header>
         <div className="container">
           <div className="logo-brand">
-            <NavLink to="/"> Huzaifa Jabbar</NavLink>
+            <NavLink to="/">HJ Tech Solutions</NavLink>
           </div>
           <nav>
             <ul>
