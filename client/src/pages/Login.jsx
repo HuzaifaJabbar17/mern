@@ -9,8 +9,8 @@ const Login = () => {
                 <img
                   src="/images/login.png"
                   alt="fill the login form"
-                  height={500}
-                  width={500}
+                  height="500"
+                  width="500"
                 />
               </div>
 

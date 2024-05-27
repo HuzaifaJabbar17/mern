@@ -16,7 +16,7 @@ const Register = () => {
 
               {/* let tackle registration form  */}
               <div className="registration-form">
-                <h1 className="main-heading mb-3">registration form</h1>
+                <h1 className="main-heading mb-3">Registration</h1>
                 <br />
 
                 <form action="">
