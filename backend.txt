@@ -19,3 +19,5 @@ then the data gets saved in our database
 
 define the path in our server file
 
+
+NOTE never have fetch url in 127.0.0.1 but in localhost format
