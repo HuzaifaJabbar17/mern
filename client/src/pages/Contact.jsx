@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 const defaultCOntactFormDate = {
   username: "",
@@ -24,8 +25,28 @@ const Contact = () => {
     // }));
   };
 
-  const handleSubmit = (e) => {
+  // const navigate = useNavigate();
+  const URL = `http://localhost:8000/api/auth/contact`;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
+
+      console.log(response);
+
+      if (response.ok) {
+        alert("Message sent successfully");
+      }
+    } catch (error) {
+      console.log("contact error", error);
+    }
     console.log(contact);
   };
   return (

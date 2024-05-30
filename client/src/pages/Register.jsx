@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useAuth } from "../store/auth";
+// importing auth provider which is a custom hook
+
+const userData = {
+  username: "",
+  email: "",
+  phone: "",
+  password: "",
+};
+
 const Register = () => {
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    phone: "",
-    password: "",
-  });
+  const [user, setUser] = useState(userData);
   const navigate = useNavigate();
+
+  const { storeTokenInLocalStorage } = useAuth();
+  // getting storeTokenInLocalStorage from useAuth
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -27,7 +35,7 @@ const Register = () => {
     console.log(user);
     try {
       const response =
-        // await fetch(`127.0.0.1:8000/api/auth/register`
+        // await fetch(`127.0.0.1:8000/api/auth/register` do not use url like this
         await fetch(`http://localhost:8000/api/auth/register`, {
           method: "POST",
           headers: {
@@ -39,7 +47,12 @@ const Register = () => {
       console.log(response);
 
       if (response.ok) {
-        alert("Successfully registered");
+        const response_data = await response.json();
+        console.log(response_data);
+        storeTokenInLocalStorage(response_data.token);
+        // localStorage.setItem("token",response_data.token)  ---> this method works but we are using context api to use it
+        setUser(userData);
+        // alert("Successfully registered");
         navigate("/login");
       }
     } catch (error) {
