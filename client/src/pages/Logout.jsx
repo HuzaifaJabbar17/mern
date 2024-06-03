@@ -1,8 +1,14 @@
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
+
 const Logout = () => {
-  return (
-    <>
-      <h1>This is a logout page</h1>
-    </>
-  );
+  const { LogoutUser } = useAuth();
+
+  useEffect(() => {
+    LogoutUser();
+  }, [LogoutUser]);
+
+  return <Navigate to="/login" />;
 };
 export default Logout;

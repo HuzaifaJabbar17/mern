@@ -1,6 +1,10 @@
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+
+import { useAuth } from "../../store/auth";
+
 const Navbar = () => {
+  const { isLoggedIn } = useAuth();
   return (
     <>
       <header>
@@ -10,13 +14,33 @@ const Navbar = () => {
           </div>
           <nav>
             <ul>
-              <li><NavLink to="/">Home</NavLink></li>
-              <li><NavLink to="/about">About</NavLink></li>
-              <li><NavLink to="/contact">Contact</NavLink></li>
-              <li><NavLink to="/service">Service</NavLink></li>
-              <li><NavLink to="/register">Sign In</NavLink></li>
-              <li><NavLink to="/login">Log In</NavLink></li>
-              <li><NavLink to="/logout">Log out</NavLink></li>
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/about">About</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact">Contact</NavLink>
+              </li>
+              <li>
+                <NavLink to="/service">Service</NavLink>
+              </li>
+
+              {isLoggedIn ? (
+                <li>
+                  <NavLink to="/logout">Log out</NavLink>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <NavLink to="/register">Sign In</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/login">Log In</NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </nav>
         </div>
@@ -25,6 +49,5 @@ const Navbar = () => {
   );
 };
 export default Navbar;
-
 
 // a href is reloading the page again and again so we are using Navlink insted of that and wth to attribute

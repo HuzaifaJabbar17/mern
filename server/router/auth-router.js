@@ -13,6 +13,8 @@ const validate = require("../middlewares/validate-middleware");
 const loginSchema = require("../validators/login-validators");
 const loginValidate = require("../middlewares/login-validate");
 
+const authmiddleware = require("../middlewares/auth-middleware");
+
 /*
 //instead of app now we will use router  
 
@@ -50,5 +52,6 @@ router.route("/login").post(loginValidate(loginSchema), authControllers.login);
 
 router.route("/contact").post(authControllers.contactForm);
 
+router.route("/user").get(authmiddleware, authControllers.user);
 
 module.exports = router;

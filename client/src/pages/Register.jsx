@@ -53,7 +53,7 @@ const Register = () => {
         // localStorage.setItem("token",response_data.token)  ---> this method works but we are using context api to use it
         setUser(userData);
         // alert("Successfully registered");
-        navigate("/login");
+        navigate("/");
       }
     } catch (error) {
       console.log("register error", error);

@@ -3,7 +3,6 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user-model");
 const Contact = require("../models/contact-model");
 
-
 const home = async (req, res) => {
   try {
     res.status(200).send("HELLO HOME");
@@ -92,7 +91,17 @@ const contactForm = async (req, res) => {
   }
 };
 
-module.exports = { home, register, login, contactForm };
+const user = async (req, res) => {
+  try {
+    const userData = req.user;
+    console.log(userData);
+    return res.status(200).json({ msg: userData });
+  } catch (error) {
+    console.log(`error from the user route ${error}`);
+  }
+};
+
+module.exports = { home, register, login, contactForm, user };
 
 // get registration data : retrieve user data (username,password,email)
 // check email existence: if email is already registered
