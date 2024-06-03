@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "../store/auth";
 // import { useNavigate } from "react-router-dom";
 
 const defaultCOntactFormDate = {
@@ -8,6 +9,19 @@ const defaultCOntactFormDate = {
 };
 const Contact = () => {
   const [contact, setContact] = useState(defaultCOntactFormDate);
+
+  const [userData, setUserData] = useState(true);
+
+  const { user } = useAuth();
+
+  if (userData && user) {
+    setContact({
+      username: user.username,
+      email: user.email,
+      message: "",
+    });
+    setUserData(false);
+  }
 
   const handleInput = (e) => {
     let name = e.target.name;
