@@ -3,8 +3,7 @@ import Analytics from "./../components/Analytics/Analytics";
 
 import { useAuth } from "../store/auth";
 const About = () => {
-
-  const {user} = useAuth();
+  const { user } = useAuth();
 
   return (
     <>
@@ -14,7 +13,7 @@ const About = () => {
             <div className="hero-content">
               {/* <p>We care to cure your Health</p> */}
               <p>
-                Welcome,
+                Welcome
                 {user ? ` ${user.username} to our website` : ` to our website`}
               </p>
               <h1>Why Choose Us? </h1>

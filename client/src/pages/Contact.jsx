@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useAuth } from "../store/auth";
 // import { useNavigate } from "react-router-dom";
 
-const defaultCOntactFormDate = {
+const defaultContactFormData = {
   username: "",
   email: "",
   message: "",
 };
 const Contact = () => {
-  const [contact, setContact] = useState(defaultCOntactFormDate);
+  const [contact, setContact] = useState(defaultContactFormData);
 
   const [userData, setUserData] = useState(true);
 
@@ -56,9 +56,13 @@ const Contact = () => {
       console.log(response);
 
       if (response.ok) {
+        setContact(defaultContactFormData);
+        const data = await response.json();
+        console.log(data);
         alert("Message sent successfully");
       }
     } catch (error) {
+      alert("Message not send");
       console.log("contact error", error);
     }
     console.log(contact);

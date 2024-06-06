@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const AuthorizationToken = `Bearer ${token}`;
 
   const storeTokenInLocalStorage = (servertoken) => {
+    setToken(servertoken);
     return localStorage.setItem("token", servertoken);
   };
 
@@ -32,6 +33,8 @@ export const AuthProvider = ({ children }) => {
         // console.log(data);
         console.log(data.userData);
         setUser(data.userData);
+      } else {
+        console.error("Error fetching user data");
       }
     } catch (error) {
       console.log(`error from fetching data ${error}`);
@@ -44,7 +47,13 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ storeTokenInLocalStorage, LogoutUser, IsLoggedIn, user }}
+      value={{
+        storeTokenInLocalStorage,
+        LogoutUser,
+        IsLoggedIn,
+        user,
+        AuthorizationToken,
+      }}
     >
       {children}
     </AuthContext.Provider>

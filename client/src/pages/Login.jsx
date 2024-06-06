@@ -47,6 +47,9 @@ const Login = () => {
         // alert("login successfully");
         navigate("/");
       }
+      else{
+        alert("You entered invalid credentials       ")
+      }
     } catch (error) {
       console.log("login error", error);
     }
